@@ -1,9 +1,9 @@
 import { Schema /* , arrayOf */ } from 'normalizr';
 
-const posts = new Schema('posts');
+const repository = new Schema('repository');
 
-posts.define({});
+repository.define({});
 
 export {
-  posts,
+  repository,
 };

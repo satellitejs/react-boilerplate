@@ -1,6 +1,9 @@
 import Immutable from 'immutable';
 import createReducer from '../utils/createReducer';
 import * as schemas from '../schema';
+import {
+  FETCH_REPOSITORIES_RECEIVED,
+} from '../containers/Home/constants';
 
 const _initialState = {};
 Object.keys(schemas).forEach((schema) => {
@@ -10,9 +13,9 @@ Object.keys(schemas).forEach((schema) => {
 export const initialState = Immutable.fromJS(_initialState);
 
 export const reducer = {
-  // [SOME_DATA_RECEIVED]: (state, { payload: { entities } }) => {
-  //   return state.mergeDeep(entities);
-  // },
+  [FETCH_REPOSITORIES_RECEIVED]: (state, { payload: { entities } }) => {
+    return state.mergeDeep(entities);
+  },
 };
 
 export default createReducer(initialState, reducer);
