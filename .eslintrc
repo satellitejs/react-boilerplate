@@ -197,33 +197,6 @@
     "react/react-in-jsx-scope": 2,
     "react/self-closing-comp": 2,
     "react/wrap-multilines": 2,
-    "react/sort-comp": [2, {
-      "order": [
-        "displayName",
-        "propTypes",
-        "contextTypes",
-        "childContextTypes",
-        "mixins",
-        "statics",
-        "defaultProps",
-        "constructor",
-        "getDefaultProps",
-        "getInitialState",
-        "getChildContext",
-        "componentWillMount",
-        "componentDidMount",
-        "componentWillReceiveProps",
-        "shouldComponentUpdate",
-        "componentWillUpdate",
-        "componentDidUpdate",
-        "componentWillUnmount",
-        "/^on.+$/",
-        "/^get.+$/",
-        "/^render.+$/",
-        "everything-else",
-        "render"
-      ]
-    }],
 
     "babel/generator-star-spacing": 0,
     "babel/new-cap": 0,
