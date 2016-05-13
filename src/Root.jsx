@@ -19,9 +19,9 @@ class Root extends Component {
   }
 
   render() {
-    // NOTE: `this.props.state` is used by the server.
-    const route = this.props.route || this.props.state;
+    const { route } = this.props;
     const segment = route ? route.name.split('.')[0] : undefined;
+
     return (
       <div className="Root">
         {/*
@@ -34,8 +34,11 @@ class Root extends Component {
           meta={[
             {name: 'description', content: 'Boilerplate using React, Redux, Redux Saga, Immutable.js, Webpack, etc.'},
           ]} />
+
+        {/*
+          * Find and create element from route segment
+          */}
         {createElement(components[segment] || NotFound)}
-        {this.props.children ? this.props.children : null}
       </div>
     );
   }
