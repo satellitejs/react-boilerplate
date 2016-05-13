@@ -16,7 +16,7 @@ class Home extends Component {
           * See: https://github.com/nfl/react-helmet
           */}
         <Helmet title="Home" />
-        <h1>Home</h1>
+        <h1>React Boilerplate by <a href="https://github.com/satellitejs">SatelliteJS</a></h1>
       </div>
     );
   }
