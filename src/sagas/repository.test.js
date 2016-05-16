@@ -35,8 +35,6 @@ test('Saga: requestGitHubRepositories', (t) => {
     normalize(response, arrayOf(repositorySchema)),
     'should return normalized data'
   );
-
-  t.end();
 });
 
 test('Saga: fetchRepositories', (t) => {
@@ -62,8 +60,6 @@ test('Saga: fetchRepositories', (t) => {
     put(actions.fetchRepositoriesFailed(error)),
     'should put fetchRepositoriesFailed action when failed'
   );
-
-  t.end();
 });
 
 test('Saga: watchFetchRepositories', (t) => {
@@ -76,6 +72,4 @@ test('Saga: watchFetchRepositories', (t) => {
     call(takeEvery, actions.fetchRepositories().type, fetchRepositories),
     `should trigger on action type: ${actions.fetchRepositories().type}`
   );
-
-  t.end();
 });

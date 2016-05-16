@@ -6,10 +6,12 @@ export const getRepositoryResult = (state) => state.getIn(['repository', 'result
 
 export const getRepositoryEntities = (state) => state.getIn(['entities', 'repository']).toJS();
 
+export const getRepositoriesByIds = (repositories, ids) => ids.map((id) => repositories[id]);
+
 export const getRepositories = createSelector(
-  getRepositoryEntities,
-  getRepositoryResult,
-  (repository, result) => {
-    return result.map((id) => repository[id]);
-  }
+  [
+    getRepositoryEntities,
+    getRepositoryResult,
+  ],
+  getRepositoriesByIds
 );
