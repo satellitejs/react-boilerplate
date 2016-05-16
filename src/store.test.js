@@ -1,6 +1,6 @@
 import test from 'blue-tape';
 
-test('test1', (t) => {
+test('test0', (t) => {
   t.plan(2);
 
   t.equal(1 + 1, 2);

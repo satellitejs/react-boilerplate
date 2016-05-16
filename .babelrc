@@ -5,7 +5,6 @@
     "stage-0"
   ],
   "plugins": [
-    "babel-plugin-espower",
     "babel-plugin-transform-decorators-legacy"
   ]
 }
