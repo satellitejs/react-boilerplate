@@ -11,6 +11,7 @@ export default function configureStore(router, initialState) {
     applyMiddleware(router5Middleware(router), sagaMiddleware),
     window.devToolsExtension && process.env.NODE_ENV !== 'production' ? window.devToolsExtension() : (f) => f,
   )(createStore);
+
   const store = createStoreWithMiddleware(rootReducer, initialState);
 
   sagaMiddleware.run(rootSaga);

@@ -1,11 +1,13 @@
-import request from 'axios';
+import _request from 'axios';
 
-request.interceptors.request.use((config) => {
+_request.interceptors.request.use((config) => {
   if (process.env.NODE_ENV !== 'production') {
     console.info('Requesting:', config.url); // eslint-disable-line no-console
   }
   return config;
 });
+
+export const requestInstance = _request;
 
 function createAndThrowError(err) {
   const error = new Error(`: ${err.status} ${err.statusText}`);
@@ -13,8 +15,8 @@ function createAndThrowError(err) {
   throw error;
 }
 
-export default function requestMolmoApi(method, url, options = {}) {
-  return request(Object.assign({}, {
+export default function request(method, url, options = {}) {
+  return _request(Object.assign({}, {
     method,
     url,
   }, options))
