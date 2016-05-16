@@ -10,7 +10,7 @@ const wrapper = shallow(
   <RepositoryBox repository={state} />
 );
 
-test('Components: RepositoryBox', (t) => {
+test('Component: RepositoryBox', (t) => {
   t.plan(1);
 
   t.equal(
