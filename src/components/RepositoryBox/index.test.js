@@ -1,12 +1,21 @@
 import test from 'blue-tape';
+import React from 'react';
+import { shallow } from 'enzyme';
+import RepositoryBox from './index';
 
-test('test1', (t) => {
-  t.plan(2);
+const state = {
+  name: 'name',
+};
+const wrapper = shallow(
+  <RepositoryBox repository={state} />
+);
 
-  t.equal(1 + 1, 2);
-  setTimeout(() => {
-    t.deepEqual(
-      'ABC'.toLowerCase().split(''), ['a', 'b', 'c']
-    );
-  });
+test('Components: RepositoryBox', (t) => {
+  t.plan(1);
+
+  t.equal(
+    wrapper.text(),
+    state.name,
+    'should render repository.name'
+  );
 });
