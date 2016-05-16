@@ -2,17 +2,12 @@ import { takeEvery } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 import { normalize, arrayOf } from 'normalizr';
 import request from '../utils/request';
-import { repository } from '../schema';
-
-import {
-  FETCH_REPOSITORIES,
-  FETCH_REPOSITORIES_RECEIVED,
-  FETCH_REPOSITORIES_FAILED,
-} from '../containers/Home/constants';
+import { repository as repositorySchema } from '../schema';
+import * as actions from '../containers/Home/actions';
 
 export function* requestGitHubRepositories(params) {
   const { data } = yield call(request, 'get', 'https://api.github.com/search/repositories', { params });
-  return normalize(data.items, arrayOf(repository));
+  return normalize(data.items, arrayOf(repositorySchema));
 }
 
 export function* fetchRepositories() {
@@ -22,16 +17,18 @@ export function* fetchRepositories() {
       order: 'desc',
       q: 'language:javascript',
     });
-    yield put({ type: FETCH_REPOSITORIES_RECEIVED, payload: data });
+    yield put(actions.fetchRepositoriesReceived(data));
   } catch (error) {
-    yield put({ type: FETCH_REPOSITORIES_FAILED, payload: error });
+    yield put(actions.fetchRepositoriesFailed(error));
   }
 }
 
 export function* watchFetchRepositories() {
-  yield* takeEvery(FETCH_REPOSITORIES, fetchRepositories);
+  yield call(takeEvery, actions.fetchRepositories().type, fetchRepositories);
 }
 
-export default [
-  watchFetchRepositories(),
-];
+export default function* repositorySaga() {
+  yield [
+    watchFetchRepositories(),
+  ];
+}

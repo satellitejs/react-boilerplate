@@ -1,7 +1,7 @@
-import repository from './repository';
+import repositorySaga from './repository';
 
 export default function* rootSaga() {
   yield [
-    ...repository,
+    repositorySaga(),
   ];
 }
