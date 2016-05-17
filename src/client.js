@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router5';
 import { Provider } from 'react-redux';
 import createStore from './store';
 import createRouter from './router';
-import Root from './Root';
+import App from './containers/App';
 
 /**
  * Fire-up Router5.
@@ -20,7 +20,7 @@ router.start(() => {
   ReactDOM.render(
     <Provider store={store}>
       <RouterProvider router={router}>
-        <Root />
+        <App />
       </RouterProvider>
     </Provider>,
     reactRoot
