@@ -1,6 +1,9 @@
 import Webpack from 'webpack';
+import ngrok from 'ngrok';
 import WebpackDevServer from 'webpack-dev-server';
 import config from './webpack.config-dev.js';
+
+const PORT = process.env.PORT || 3000;
 
 const compiler = new Webpack(config);
 const server = new WebpackDevServer(compiler, {
@@ -40,8 +43,18 @@ const server = new WebpackDevServer(compiler, {
   stats: { colors: true },
 });
 
-server.listen(3000, 'localhost', () => {
+server.listen(PORT, 'localhost', () => {
   console.info('==> ✅  Initialized development server'); // eslint-disable-line no-console
   console.info('==> 🌎  Go to http://localhost:3000'); // eslint-disable-line no-console
+
+  // Ensure its not in production
+  if (process.env.NODE_ENV !== 'production' && !process.env.DISABLE_TUNNEL) {
+    ngrok.connect(PORT, (err, url) => {
+      if (err) {
+        return console.error(err); // eslint-disable-line no-console
+      }
+      console.info(`==> 🌎  Opened tunnel at ${url}`); // eslint-disable-line no-console
+    });
+  }
 });
 // server.close();
