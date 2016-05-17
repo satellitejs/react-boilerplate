@@ -1,8 +1,8 @@
 import test from 'blue-tape';
 import React from 'react';
 import { shallow } from 'enzyme';
-import Home from './index';
-import RepositoryBox from '../../components/RepositoryBox';
+import Home from '../index';
+import RepositoryBox from '../../../components/RepositoryBox';
 
 const Component = Home.WrappedComponent;
 

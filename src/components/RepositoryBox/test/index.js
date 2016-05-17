@@ -1,7 +1,7 @@
 import test from 'blue-tape';
 import React from 'react';
 import { shallow } from 'enzyme';
-import RepositoryBox from './index';
+import RepositoryBox from '../index';
 
 const state = {
   name: 'name',

@@ -80,6 +80,7 @@
     "redux-devtools": "^3.2.0",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
+    "simple-spy": "^1.0.3",
     "stylus": "^0.54.5",
     "tap-spec": "^4.1.1",
     "webpack": "^1.13.0",

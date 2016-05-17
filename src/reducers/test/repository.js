@@ -1,10 +1,10 @@
 import test from 'blue-tape';
-import reducers, { initialState } from './repository';
+import reducers, { initialState } from '../repository';
 import {
   FETCH_REPOSITORIES,
   FETCH_REPOSITORIES_RECEIVED,
   FETCH_REPOSITORIES_FAILED,
-} from '../containers/Home/constants';
+} from '../../containers/Home/constants';
 
 const baseState = initialState.toJS();
 

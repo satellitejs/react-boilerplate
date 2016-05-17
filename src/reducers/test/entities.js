@@ -1,8 +1,8 @@
 import test from 'blue-tape';
-import reducers, { initialState } from './entities';
+import reducers, { initialState } from '../entities';
 import {
   FETCH_REPOSITORIES_RECEIVED,
-} from '../containers/Home/constants';
+} from '../../containers/Home/constants';
 
 test('Reducer: entities', (t) => {
   t.plan(1);
