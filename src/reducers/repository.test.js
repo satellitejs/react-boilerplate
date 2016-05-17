@@ -23,6 +23,7 @@ test('Reducer: repository', (t) => {
   const payload = {
     result: [2, 3, 4],
   };
+
   t.deepEqual(
     reducers(state, { type: FETCH_REPOSITORIES_RECEIVED, payload }).toJS(),
     Object.assign({}, baseState, {

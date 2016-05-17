@@ -4,7 +4,7 @@ import {
   FETCH_REPOSITORIES_RECEIVED,
 } from '../containers/Home/constants';
 
-test('Reducer: repository', (t) => {
+test('Reducer: entities', (t) => {
   t.plan(1);
 
   const payload = {
