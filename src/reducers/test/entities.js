@@ -1,5 +1,5 @@
 import test from 'blue-tape';
-import reducers, { initialState } from '../entities';
+import reducer, { initialState } from '../entities';
 import {
   FETCH_REPOSITORIES_RECEIVED,
 } from '../../containers/Home/constants';
@@ -17,7 +17,7 @@ test('Reducer: entities', (t) => {
     },
   };
   t.deepEqual(
-    reducers(undefined, { type: FETCH_REPOSITORIES_RECEIVED, payload }),
+    reducer(undefined, { type: FETCH_REPOSITORIES_RECEIVED, payload }),
     initialState.mergeDeep(payload.entities),
     `should handle an action type: ${FETCH_REPOSITORIES_RECEIVED}`
   );
