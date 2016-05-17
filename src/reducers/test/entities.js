@@ -17,8 +17,8 @@ test('Reducer: entities', (t) => {
     },
   };
   t.deepEqual(
-    reducers(undefined, { type: FETCH_REPOSITORIES_RECEIVED, payload }).toJS(),
-    initialState.mergeDeep(payload.entities).toJS(),
+    reducers(undefined, { type: FETCH_REPOSITORIES_RECEIVED, payload }),
+    initialState.mergeDeep(payload.entities),
     `should handle an action type: ${FETCH_REPOSITORIES_RECEIVED}`
   );
 });
