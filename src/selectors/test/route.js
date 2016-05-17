@@ -1,6 +1,6 @@
 import test from 'blue-tape';
 import Immutable from 'immutable';
-import routeSelector from './route';
+import routeSelector from '../route';
 
 const router = {
   route: { name: 'a.1' },

@@ -1,5 +1,5 @@
 import test from 'blue-tape';
-import createReducer from './createReducer';
+import createReducer from '../createReducer';
 
 const TEST = 'TEST';
 const state = { test: '' };

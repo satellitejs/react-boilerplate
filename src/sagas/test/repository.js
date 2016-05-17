@@ -2,14 +2,14 @@ import test from 'blue-tape';
 import { takeEvery } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import { normalize, arrayOf } from 'normalizr';
-import request from '../utils/request';
-import { repository as repositorySchema } from '../schema';
-import * as actions from '../containers/Home/actions';
+import request from '../../utils/request';
+import { repository as repositorySchema } from '../../schema';
+import * as actions from '../../containers/Home/actions';
 import {
   requestGitHubRepositories,
   fetchRepositories,
   watchFetchRepositories,
-} from './repository';
+} from '../repository';
 
 const response = [{ id: 1, name: 'test' }];
 

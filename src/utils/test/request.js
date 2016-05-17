@@ -1,6 +1,6 @@
 import test from 'blue-tape';
 import MockAdapter from 'axios-mock-adapter';
-import request, { requestInstance } from './request';
+import request, { requestInstance } from '../request';
 
 // Mock axios requests
 const mock = new MockAdapter(requestInstance);

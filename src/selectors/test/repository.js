@@ -6,7 +6,7 @@ import {
   getRepositoryEntities,
   getRepositoriesByIds,
   getRepositories,
-} from './repository';
+} from '../repository';
 
 const entities = {
   repository: {
