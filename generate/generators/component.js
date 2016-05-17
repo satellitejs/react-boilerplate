@@ -17,7 +17,7 @@ function generateComponent(args) {
     return utils.printError('Invalid number of arguments. Must specify a name for the component.');
   }
 
-  return utils.generate('component', utils.capitalizeFirstLetter(args[0]), BASE_DIR, CREATE_FILES, CREATE_DIRS);
+  return utils.generateWithDirectory('component', utils.capitalizeFirstLetter(args[0]), BASE_DIR, CREATE_FILES, CREATE_DIRS);
 }
 
 module.exports = {

@@ -3,6 +3,11 @@
 const commands = {
   component: require('./generators/component'),
   container: require('./generators/container'),
+  reducer: require('./generators/reducer'),
+  saga: require('./generators/saga'),
+  selector: require('./generators/selector'),
+  util: require('./generators/util'),
+
 };
 
 const helpCommand = require('./help');

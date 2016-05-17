@@ -20,7 +20,7 @@ function generateContainer(args) {
     return utils.printError('Invalid number of arguments. Must specify a name for the component.');
   }
 
-  return utils.generate('container', utils.capitalizeFirstLetter(args[0]), BASE_DIR, CREATE_FILES, CREATE_DIRS);
+  return utils.generateWithDirectory('container', utils.capitalizeFirstLetter(args[0]), BASE_DIR, CREATE_FILES, CREATE_DIRS);
 }
 
 module.exports = {

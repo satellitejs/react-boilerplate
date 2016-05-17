@@ -42,7 +42,16 @@ function createDirectories(path, dirnames) {
   });
 }
 
-function generate(type, name, dir, filenames, dirnames) {
+function checkDirectoryExists(path) {
+  try {
+    fs.accessSync(path, fs.F_OK);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function generateWithDirectory(type, name, dir, filenames, dirnames) {
   const path = `${dir}/${name}`;
   try {
     fs.accessSync(path, fs.F_OK);
@@ -63,10 +72,14 @@ function generate(type, name, dir, filenames, dirnames) {
   }
 }
 
-
 module.exports = {
   print: print,
   printError: printError,
   capitalizeFirstLetter: capitalizeFirstLetter,
-  generate: generate,
+  checkDirectoryExists: checkDirectoryExists,
+  createFile: createFile,
+  createFiles: createFiles,
+  createDirectory: createDirectory,
+  createDirectories: createDirectories,
+  generateWithDirectory: generateWithDirectory,
 };
