@@ -21,7 +21,28 @@ function createFile(path, filename) {
   });
 }
 
-function generate(type, name, dir, files) {
+function createFiles(path, filenames) {
+  filenames.forEach(function(filename) { // eslint-disable-line func-names
+    createFile(path, filename);
+  });
+}
+
+function createDirectory(path, dirname) {
+  fs.mkdir(`${path}/${dirname}`, function(err) { // eslint-disable-line func-names
+    if (err) {
+      return print(`Could not create directory: ${path}/${dirname}/`);
+    }
+    return print(`Created directory: ${path}/${dirname}/`);
+  });
+}
+
+function createDirectories(path, dirnames) {
+  dirnames.forEach(function(dirname) { // eslint-disable-line func-names
+    createDirectory(path, dirname);
+  });
+}
+
+function generate(type, name, dir, filenames, dirnames) {
   const path = `${dir}/${name}`;
   try {
     fs.accessSync(path, fs.F_OK);
@@ -29,11 +50,15 @@ function generate(type, name, dir, files) {
   } catch (e) {
     // It isn't accessible
     print(`Creating a new ${type}: ${name}`);
+
     fs.mkdir(path, function() { // eslint-disable-line func-names
       print(`Created directory: ${path}`);
-      files.forEach(function(filename) { // eslint-disable-line func-names
-        createFile(path, filename);
-      });
+
+      if (dirnames && dirnames.length) {
+        createDirectories(path, dirnames);
+      }
+
+      createFiles(path, filenames);
     });
   }
 }
