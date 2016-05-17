@@ -2,13 +2,17 @@ const utils = require('../utils');
 
 const BASE_DIR = './src/containers';
 
+const CREATE_DIRS = [
+  'test',
+];
+
 const CREATE_FILES = [
   'index.jsx',
-  'index.test.js',
   'actions.js',
-  'actions.test.js',
   'constants.js',
   'style.styl',
+  'test/index.js',
+  'test/actions.js',
 ];
 
 function generateContainer(args) {
@@ -16,7 +20,7 @@ function generateContainer(args) {
     return utils.printError('Invalid number of arguments. Must specify a name for the component.');
   }
 
-  return utils.generate('container', utils.capitalizeFirstLetter(args[0]), BASE_DIR, CREATE_FILES);
+  return utils.generate('container', utils.capitalizeFirstLetter(args[0]), BASE_DIR, CREATE_FILES, CREATE_DIRS);
 }
 
 module.exports = {

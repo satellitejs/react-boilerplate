@@ -2,10 +2,14 @@ const utils = require('../utils');
 
 const BASE_DIR = './src/components';
 
+const CREATE_DIRS = [
+  'test',
+];
+
 const CREATE_FILES = [
   'index.jsx',
-  'index.test.js',
   'style.styl',
+  'test/index.js',
 ];
 
 function generateComponent(args) {
@@ -13,7 +17,7 @@ function generateComponent(args) {
     return utils.printError('Invalid number of arguments. Must specify a name for the component.');
   }
 
-  return utils.generate('component', utils.capitalizeFirstLetter(args[0]), BASE_DIR, CREATE_FILES);
+  return utils.generate('component', utils.capitalizeFirstLetter(args[0]), BASE_DIR, CREATE_FILES, CREATE_DIRS);
 }
 
 module.exports = {
